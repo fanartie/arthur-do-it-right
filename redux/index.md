@@ -1,14 +1,12 @@
 # redux 
 
-Let's talk about common mistakes with Redux
+Let's talk about common mistakes with using Redux.
 
-We are going to create a simple Redux project as following
+We are going to create a simple Redux project as following...
 
 ![](redux-1.gif)
 
-### _The codes below look good, but something are wrong!_
-
-
+###### _The codes below look good, but something are wrong!_
 
 The store
 
@@ -72,7 +70,7 @@ const Main = () => {
 
     let list = useSelector(state => state.list);
 
-    console.log('update Main');
+    console.log('update Main ===');
 
     return (
         <div>
@@ -128,5 +126,14 @@ export default Student;
 
 ```
 
-##### _What's wrong ?_
+###### _What's wrong with the code?_
+
+
+Let's debug with console log
+
+![](redux-2.gif)
+
+We should NOT reload the whole "Main" when clicking on single person!
+
+
 

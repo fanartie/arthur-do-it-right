@@ -6,7 +6,7 @@ We are going to create a simple Redux project as following...
 
 ![](redux-1.gif)
 
-###### _The codes below look good, but something are wrong!_
+### _The codes below look good, but something are wrong!_
 
 The store
 
@@ -126,14 +126,44 @@ export default Student;
 
 ```
 
-###### _What's wrong with the code?_
+### _What's wrong with the code?_
 
 
 Let's debug with console log
 
 ![](redux-2.gif)
 
-We should NOT reload the whole "Main" when clicking on single person!
+### _We should NOT reload the whole "Main" when clicking on single person!_
 
+How to fix it? if we really want to use the "list" at the "Main".
+
+Simply use "store.getState()" to load the data.
+
+We should avoid using the "Main(root)" as observer, because any update will force render all the children.
+
+```jsx
+import store from '../../store';
+import Student from '../Student';
+
+const Main = () => {
+
+    let list = store.getState().list;
+
+    console.log('update Main ===');
+
+    return (
+        <div>
+            {list.map((i,idx)=>{
+                return (
+                    <Student key={i.id} idx={idx}/>
+                )
+            })}
+        </div>
+    );
+}
+
+export default Main;
+
+```
 
 

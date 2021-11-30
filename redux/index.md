@@ -4,13 +4,13 @@ Let's talk about using redux with do-it-right !
 
 We are going to create a simple redux project as following
 
-![](redux/redux-1.gif)
+![](redux-1.gif)
 
 The codes below looks "okay", but something is wrong!
 
 The store
 
-```javascript
+```jsx
 import { createStore } from 'redux';
 import reducer from "./reducer";
 
@@ -23,7 +23,7 @@ export default store;
 
 
 The reducer
-```javascript
+```jsx
 
 import initState from './initState';
 import immer from 'immer';
@@ -45,7 +45,7 @@ export default reducer;
 
 
 The initState
-```javascript
+```jsx
 module.exports = {
     list: [
         {id: 1, name: 'Tony',   score: 80},
@@ -58,7 +58,7 @@ module.exports = {
 
 The main code
 
-```javascript
+```jsx
 import store from '../../store';
 import Student from '../Student';
 
@@ -80,7 +80,7 @@ export default Main;
 ```
 
 The Student component
-```javascript
+```jsx
 import { useDispatch, useSelector } from 'react-redux';
 import { Fade } from "react-awesome-reveal";
 

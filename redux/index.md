@@ -1,4 +1,4 @@
-# redux 
+# Redux 
 
 Let's talk about common mistakes with using Redux.
 
@@ -160,7 +160,8 @@ const Main = () => {
 export default Main;
 ```
 
-### _Looks like we have fixed the issue, the "Main" only rendering once now. But, why all the students are still rendered if we only click on single person?_
+### _Looks like we have fixed the issue, the "Main" only rendering once now!_
+### _But, why all the students are still rendered if we only click on single person?_
 
 ![](redux-3.gif)
 
@@ -246,3 +247,6 @@ export default Student;
 ```
 
 
+![](redux-5.gif)
+
+### _Finally, it's running correctly now!_

@@ -17,8 +17,8 @@ import reducer from "./reducer";
 const store = createStore(
     reducer
 );
-export default store;
 
+export default store;
 ```
 
 
@@ -35,7 +35,6 @@ module.exports = {
 
 The reducer
 ```jsx
-
 import initState from './initState';
 
 const reducer = (state=initState, action) => {
@@ -84,8 +83,6 @@ const Main = () => {
 }
 
 export default Main;
-
-
 ```
 
 The Student component
@@ -122,8 +119,6 @@ const Student = props => {
 }
 
 export default Student;
-
-
 ```
 
 ### _What's wrong with the code?_
@@ -163,12 +158,91 @@ const Main = () => {
 }
 
 export default Main;
-
 ```
 
-### _Looks like we have fixed the issue, the "Main" only rendering once now._ 
-
-### _But, why all the students are rendered if we only click on single ?_
+### _Looks like we have fixed the issue, the "Main" only rendering once now. But, why all the students are still rendered if we only click on single person?_
 
 ![](redux-3.gif)
+
+Because the entire array is updated by the quick-dirty way as "JSON.parse(JSON.stringify())", which allocates new memory for the array and every element will be considered as 'updated'.  
+(We understood it attempts to use a new value to overwrite an immutable variable)  
+
+But, how can we reduce the immutable state with updating only one element of array ?
+
+Introducing the 'immer' library.
+[https://www.npmjs.com/package/immer](https://www.npmjs.com/package/immer)
+```bash
+yarn add immer
+```
+
+The reducer with using 'immer'
+
+```jsx
+import initState from './initState';
+import immer from 'immer';
+
+const reducer = (state=initState, action) => {
+
+    switch (action.type) {
+
+        case 'add':
+            return immer(state, draft =>{
+                draft.list[action.idx].score += 1;
+            })
+
+        default:
+            return state;
+    }
+}
+
+export default reducer;
+```
+
+### _Awesome! But, it doesn't fix the issue._
+
+Because each student is still subscribe the 'entire' array of update.
+
+![](redux-4.png)
+
+Each student should only subscribe to his element instead of the entire array.
+
+```jsx
+let person = useSelector(state => state.list[props.idx]);
+```
+
+The new code...
+```jsx
+import { useDispatch, useSelector } from 'react-redux';
+import { Fade } from "react-awesome-reveal";
+
+const Student = props => {
+
+    const dispatch = useDispatch();
+
+    let person = useSelector(state => state.list[props.idx]);
+
+    console.log('update', person.name);
+
+    const onClick = () => {
+        dispatch({
+            type: 'add',
+            idx: props.idx
+        });
+    }
+
+    let key = [person.id, person.score].map(String).join(':');
+
+    return (
+        <Fade key={key}>
+            <div>
+                {person.id}, {person.name}, {person.score},
+                <button onClick={onClick}>add</button>
+            </div>
+        </Fade>
+    );
+}
+
+export default Student;
+```
+
 

@@ -1,12 +1,14 @@
 # redux 
 
-Let's talk about using redux with do-it-right !
+Let's talk about common mistakes with Redux
 
-We are going to create a simple redux project as following
+We are going to create a simple Redux project as following
 
 ![](redux-1.gif)
 
-The codes below looks "okay", but something is wrong!
+### _The codes below look good, but something are wrong!_
+
+
 
 The store
 
@@ -22,28 +24,6 @@ export default store;
 ```
 
 
-The reducer
-```jsx
-
-import initState from './initState';
-import immer from 'immer';
-
-const reducer = (state=initState, action) => {
-
-    switch (action.type) {
-        case 'add':
-            return immer(state, draft =>{
-                draft.list[action.idx].score += 1;
-            })
-        default:
-            return state;
-    }
-}
-
-export default reducer;
-```
-
-
 The initState
 ```jsx
 module.exports = {
@@ -55,15 +35,45 @@ module.exports = {
 }
 ```
 
+The reducer
+```jsx
+
+import initState from './initState';
+
+const reducer = (state=initState, action) => {
+
+    switch (action.type) {
+        case 'add':
+            let newList = JSON.parse(JSON.stringify(state.list));
+            newList[action.idx].score += 1;
+            return {
+                ...state,
+                list: newList
+            };
+        default:
+            return state;
+    }
+}
+
+export default reducer;
+```
+
+
+
+
 
 The main code
 
 ```jsx
-import store from '../../store';
+import {useSelector} from "react-redux";
 import Student from '../Student';
 
 const Main = () => {
-    let list = store.getState().list;
+
+    let list = useSelector(state => state.list);
+
+    console.log('update Main');
+
     return (
         <div>
             {list.map((i,idx)=>{
@@ -77,6 +87,7 @@ const Main = () => {
 
 export default Main;
 
+
 ```
 
 The Student component
@@ -89,9 +100,9 @@ const Student = props => {
     const dispatch = useDispatch();
 
     let list = useSelector(state => state.list);
-    let one = list[props.idx];
+    let person = list[props.idx];
 
-    console.log('update', one.name);
+    console.log('update', person.name);
 
     const onClick = () => {
         dispatch({
@@ -100,12 +111,12 @@ const Student = props => {
         });
     }
 
-    let key = [one.id, one.score].map(String).join(':');
+    let key = [person.id, person.score].map(String).join(':');
 
     return (
         <Fade key={key}>
             <div>
-                {one.id}, {one.name}, {one.score},
+                {person.id}, {person.name}, {person.score},
                 <button onClick={onClick}>add</button>
             </div>
         </Fade>
@@ -114,4 +125,8 @@ const Student = props => {
 
 export default Student;
 
+
 ```
+
+##### _What's wrong ?_
+

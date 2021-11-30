@@ -201,9 +201,9 @@ export default reducer;
 
 ### _Awesome! But, it doesn't fix the issue._
 
-Because each student is still subscribe the 'entire' array of update.
+Because each student is still subscribe with the 'entire' array of update.
 
-![](redux-4.png)
+![](redux-4.png){width=75%}
 
 Each student should only subscribe to his element instead of the entire array.
 

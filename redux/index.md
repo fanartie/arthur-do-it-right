@@ -203,7 +203,7 @@ export default reducer;
 
 Because each student is still subscribe with the 'entire' array of update.
 
-![](redux-4.png){width=75%}
+![](redux-4.png)
 
 Each student should only subscribe to his element instead of the entire array.
 
@@ -250,3 +250,14 @@ export default Student;
 ![](redux-5.gif)
 
 ### _Finally, it's running correctly now!_
+
+Questions for you...
+
+1. If you noticed the "react-awesome-reveal" library that shows the "Fade" effect when we click on the person. Why does the first GIF (original code with bug) look like running correctly, only one person with "Fading" effect although every student is rendered ?
+
+2. What's the influence if we never fix the bug?
+
+3. If we really want to 'reload' the entire array (ex, API returns entire array of update), are we able to only render the item which is 'updated' or 'new inserted' without rendering the whole list ?
+
+
+

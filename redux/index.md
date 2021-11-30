@@ -166,4 +166,9 @@ export default Main;
 
 ```
 
+### _Looks like we have fixed the issue, the "Main" only rendering once now._ 
+
+### _But, why all the students are rendered if we only click on single ?_
+
+![](redux-3.gif)
 

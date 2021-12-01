@@ -254,7 +254,7 @@ export default Student;
 
 Questions for you...
 
-1. If you noticed the "react-awesome-reveal" library that shows the "Fade" effect when we click on the person. Why does the first GIF (original code with bug) look like running correctly, only one person with "Fading" effect although every student is rendered ?
+1. If you noticed the "react-awesome-reveal" library that shows the "Fade" effect when we click on the person. Why does the first GIF (original code with bug) look like running correctly, only one person with "Fading" effect even though every student is rendered ?
 
 2. What's the influence if we never fix the bug?
 

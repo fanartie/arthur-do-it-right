@@ -8,7 +8,7 @@ We are going to create a simple Redux project as following...
 
 ![](redux-1.gif)
 
-### _The codes below look good, but something are wrong!_
+### _The codes below look good, but some things are wrong!_
 
 The store
 
@@ -136,7 +136,7 @@ How to fix it? if we really want to reference the initState "list" at the "Main"
 
 Simply use "store.getState()" to load the data.
 
-We should avoid using the "Main(root)" as observer, because any update will force render all the children.
+We should avoid using the "Main(root)" as observer, because any update to the root may force rendering all the children.
 
 ```jsx
 import store from '../../store';
@@ -162,8 +162,8 @@ const Main = () => {
 export default Main;
 ```
 
-### _Looks like we have fixed the issue, the "Main" only rendering once now!_
-### _But, why all the students are still rendered if we only click on single person?_
+### _Looks like we have fixed the issue, the "Main" only is rendering once now!_
+### _But, why all the students are still rendered when we only click on single person?_
 
 ![](redux-3.gif)
 
@@ -256,11 +256,10 @@ export default Student;
 
 Questions for you...
 
-1. If you noticed the "react-awesome-reveal" library that shows the "Fade" effect when we click on the person. Why does the first GIF (original code with bug) look like running correctly, only one person with "Fading" effect even though every student is rendered ?
+1. If you noticed the "react-awesome-reveal" library that shows the "Fade" effect when we click on the person. Why does the first GIF (original code with bug) seems look like running correctly, only one person with "Fading" effect even though every student is rendered ?
 
 2. What's the influence if we never fix the bug?
 
-3. If we really want to 'reload' the entire array (ex, API returns array of update), are we able to only render the item which is 'updated' or 'new inserted' without rendering the whole list ?
-
+3. If we receive 'webSocket' for the element update, how can we reduce to update the only single element ? 
 
 

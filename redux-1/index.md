@@ -1,6 +1,6 @@
 # Redux - avoid rendering everything
 
-by [Arthur Fan](emailto:fanartie@gmail.com),  July 2020
+by [Arthur Fan](mailto:fanartie@gmail.com),  July 2020
 
 Let's talk about common mistakes with using Redux.
 

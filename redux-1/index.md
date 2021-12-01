@@ -136,7 +136,7 @@ How to fix it? if we really want to reference the initState "list" at the "Main"
 
 Simply use "store.getState()" to load the data.
 
-We should avoid using the "Main(root)" as observer, because any update to the root may force rendering all the children.
+We should avoid using the "Main(root)" as an observer, because any update to the root may force rendering all the children.
 
 ```jsx
 import store from '../../store';
@@ -162,14 +162,14 @@ const Main = () => {
 export default Main;
 ```
 
-### _Looks like we have fixed the issue, the "Main" only is rendering once now!_
-### _But, why all the students are still rendered when we only click on single person?_
+### _Looks like we have fixed the issue, the "Main" is only rendering once now!_
+### _But, why all the students are still rendered when we click on a single person?_
 
 ![](redux-3.gif)
 
-Because the entire array is updated by the quick-dirty way as "JSON.parse(JSON.stringify())", which allocates the new memory for the array and then every element will be considered as 'updated'.  
+We understood it was attempting to overwrite an immutable state, and it used a quick-dirty solution as "JSON.parse(JSON.stringify())", which allocates new memory for the value and then every array element will be considered as 'updated'.  
 
-(We understood it was attempting to overwrite an immutable variable.)  
+  
 
 How can we reduce the immutable state with updating only one element of array ?
 
@@ -204,11 +204,11 @@ export default reducer;
 
 ### _Awesome! But, it doesn't fix the issue._
 
-Because each student is still subscribe with the 'entire' array of update, and why any element change will be considered as "array is updated".
+Because each student is still subscribed with the 'entire' array of updates, and why should any element changes will be considered as "array is updated".
 
 ![](redux-4.png)
 
-Each student should only subscribe to his element instead of the entire array.
+Each student should only subscribe to their element instead of the entire array.
 
 ```jsx
 let person = useSelector(state => state.list[props.idx]);
@@ -254,12 +254,12 @@ export default Student;
 
 ### _Finally, it's running correctly now!_
 
-Questions for you...
+#### _Questions for you..._
 
-1. If you noticed the "react-awesome-reveal" library that shows the "Fade" effect when we click on the person. Why does the first GIF (original code with bug) seems look like running correctly, only one person with "Fading" effect even though every student is rendered ?
+1. If you noticed the "react-awesome-reveal" that is used for "Fade" effect when we click on the person. Why does the original code (with bug) seem look running correctly with only one person "Fading" even though all students are rendered ?
 
 2. What's the influence if we never fix the bug?
 
-3. If we receive 'webSocket' for the element update, how can we reduce to update the only single element ? 
+3. If we receive 'webSocket' for a single element update, how can we update at the reducer with using immer ?
 
 

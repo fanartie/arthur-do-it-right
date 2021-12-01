@@ -260,7 +260,7 @@ Questions for you...
 
 2. What's the influence if we never fix the bug?
 
-3. If we really want to 'reload' the entire array (ex, API returns entire array of update), are we able to only render the item which is 'updated' or 'new inserted' without rendering the whole list ?
+3. If we really want to 'reload' the entire array (ex, API returns array of update), are we able to only render the item which is 'updated' or 'new inserted' without rendering the whole list ?
 
 
 

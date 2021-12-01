@@ -167,7 +167,7 @@ export default Main;
 
 Because the entire array is updated by the quick-dirty way as "JSON.parse(JSON.stringify())", which allocates the new memory for the array and then every element will be considered as 'updated'.  
 
-(We understood it attempts to use a new value to overwrite an immutable variable)  
+(We understood it was attempting to overwrite an immutable variable.)  
 
 How can we reduce the immutable state with updating only one element of array ?
 

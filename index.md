@@ -1,5 +1,5 @@
 
 
-[Redux](redux/index.md)
+[Redux - avoid rendering everything](redux/index.md)
 
 

@@ -1,4 +1,4 @@
-# Redux 
+# Redux - avoid rendering everything
 
 Let's talk about common mistakes with using Redux.
 
@@ -130,7 +130,7 @@ Let's debug with console log
 
 ### _We should NOT reload the whole "Main" when clicking on single person!_
 
-How to fix it? if we really want to use the "list" at the "Main".
+How to fix it? if we really want to reference the initState "list" at the "Main".
 
 Simply use "store.getState()" to load the data.
 
@@ -165,10 +165,11 @@ export default Main;
 
 ![](redux-3.gif)
 
-Because the entire array is updated by the quick-dirty way as "JSON.parse(JSON.stringify())", which allocates new memory for the array and every element will be considered as 'updated'.  
+Because the entire array is updated by the quick-dirty way as "JSON.parse(JSON.stringify())", which allocates the new memory for the array and then every element will be considered as 'updated'.  
+
 (We understood it attempts to use a new value to overwrite an immutable variable)  
 
-But, how can we reduce the immutable state with updating only one element of array ?
+How can we reduce the immutable state with updating only one element of array ?
 
 Introducing the 'immer' library.
 [https://www.npmjs.com/package/immer](https://www.npmjs.com/package/immer)
@@ -201,7 +202,7 @@ export default reducer;
 
 ### _Awesome! But, it doesn't fix the issue._
 
-Because each student is still subscribe with the 'entire' array of update.
+Because each student is still subscribe with the 'entire' array of update, and why any element change will be considered as "array is updated".
 
 ![](redux-4.png)
 

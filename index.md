@@ -1,9 +1,9 @@
 
-#### The material I shared with my team for deep-dive session
+### The material I shared with my team for deep-dive session
 
 [React Redux - avoid rendering everything](redux-1/index.md)
 
-#### The projects I have done for last 2 years
+### The projects I have done for last 2 years
 
 [Project demo - search & share](project/search-share.md)
 
@@ -12,7 +12,7 @@
 [Project demo - super search](project/super-search.md)
 
 
-#### The demo of skills
+### The demo of skills
 
 [The case-study assignment for skill assessment](https://github.com/fanartie/layla#arthurs-submissio) - done by Dec 7th, 2021
 
@@ -25,7 +25,7 @@ This case-study project covers few major subjects and skill set below...
 5. To estimate the skill of problem-solving and communication, of how to present the solution to the team
 6. The solution and design idea that resolves the unique requirement and still allow the SPA (single page app) structure as a workaround
 
-#### Also, lots presentation and diagrams
+### Also, lots presentation and diagrams
 
 I am almost the sole person doing presentation to share my design idea to the team for most of the time. 
 And to make Lucichart diagrams for documentation need to help team quick understand the dataflow and workflow.

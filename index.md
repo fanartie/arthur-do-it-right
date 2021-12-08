@@ -1,3 +1,16 @@
+### The demo of skills
+
+* [The case-study assignment for skill assessment](https://github.com/fanartie/layla#arthurs-submissio) - done by Dec 7th, 2021
+
+This case-study project covers few major subjects and skill set below...
+
+>  1. The CORS and CSRF consideration while using API as a microservices
+>  2. The security concern of using open API, through AWS API-Gateway with the credential, also the use of AWS Secret Management
+>  3. The skill level of using AWS Lambda and SAM deployment
+>  4. The advanced skill of using ReactJS, Redux and introducing some valuable and essential libraries
+>  5. To estimate the skill of problem-solving and communication, of how to present the solution to the team
+>  6. The solution and design idea that resolves the unique requirement and still allow the SPA (single page app) structure as a workaround
+
 
 ### The material I shared with my team for deep-dive session
 
@@ -12,18 +25,6 @@
 * [Project demo - super search](project/super-search.md)
 
 
-### The demo of skills
-
-* [The case-study assignment for skill assessment](https://github.com/fanartie/layla#arthurs-submissio) - done by Dec 7th, 2021
-
-This case-study project covers few major subjects and skill set below...
-
->  1. The CORS and CSRF consideration while using API as a microservices
->  2. The security concern of using open API, through AWS API-Gateway with the credential, also the use of AWS Secret Management
->  3. The skill level of using AWS Lambda and SAM deployment
->  4. The advanced skill of using ReactJS, Redux and introducing some valuable and essential libraries
->  5. To estimate the skill of problem-solving and communication, of how to present the solution to the team
->  6. The solution and design idea that resolves the unique requirement and still allow the SPA (single page app) structure as a workaround
 
 ### Also, lots presentation and diagrams
 

@@ -12,7 +12,6 @@
 * [Project demo - super search](project/super-search.md)
 
 
-
 ### Also, lots presentation and diagrams
 
 >I am usually the sole person doing presentation to share my design idea to the team, and to make Lucichart diagrams for documentation for the need to help team quick understand the dataflow and workflow.

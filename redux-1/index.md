@@ -2,13 +2,12 @@
 
 by [Arthur Fan](mailto:fanartie@gmail.com),  July 2020
 
-Let's talk about common mistakes with using Redux.
-
-We are going to create a simple Redux project as following...
+Let’s talk about common mistakes with using Redux.
+We are going to create a simple Redux project as follows.
 
 ![](redux-1.gif)
 
-### _The codes below look good, but some things are wrong!_
+### _The code below looks good but needs to be corrected!_
 
 The store
 
@@ -130,13 +129,13 @@ Let's debug with console log
 
 ![](redux-2.gif)
 
-### _We should NOT reload the whole "Main" when clicking on single person!_
+### _We should NOT reload the whole "Main" when clicking on a single person!_
 
-How to fix it? if we really want to reference the initState "list" at the "Main".
+How to fix it? If we want to reference the initState "list" at the "Main".
 
 Simply use "store.getState()" to load the data.
 
-We should avoid using the "Main(root)" as an observer, because any update to the root may force rendering all the children.
+We should avoid using the "Main(root)" as an observer because any update to the root may force rendering all the children.
 
 ```jsx
 import store from '../../store';
@@ -162,8 +161,8 @@ const Main = () => {
 export default Main;
 ```
 
-### _Looks like we have fixed the issue, the "Main" is only rendering once now!_
-### _But, why all the students are still rendered when we click on a single person?_
+### _We have fixed the issue. The "Main" is only rendering once now!_
+### _But why it still renders all the students when we click on a single person?_
 
 ![](redux-3.gif)
 
@@ -171,7 +170,7 @@ We understood it was attempting to overwrite an immutable state, and it used a q
 
   
 
-How can we reduce the immutable state with updating only one element of array ?
+How can we reduce the immutable state by updating only one array element?
 
 Introducing the 'immer' library.
 [https://www.npmjs.com/package/immer](https://www.npmjs.com/package/immer)
@@ -202,9 +201,9 @@ const reducer = (state=initState, action) => {
 export default reducer;
 ```
 
-### _Awesome! But, it doesn't fix the issue._
+### _Awesome! But it doesn't fix the issue._
 
-Because each student is still subscribed with the 'entire' array of updates, and why should any element changes will be considered as "array is updated".
+Since only one student is updated, it will still consider the whole array is updated. 
 
 ![](redux-4.png)
 

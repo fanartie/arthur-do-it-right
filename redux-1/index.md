@@ -125,7 +125,7 @@ export default Student;
 ### _What's wrong with the code?_
 
 
-Let's debug with console log
+Let's debug with console log (Test-1)
 
 ![](redux-2.gif)
 
@@ -163,6 +163,8 @@ export default Main;
 
 ### _We have fixed the issue. The "Main" is only rendering once now!_
 ### _But why it still renders all the students when we click on a single person?_
+
+(Test-2)
 
 ![](redux-3.gif)
 
@@ -204,6 +206,8 @@ export default reducer;
 ### _Awesome! But it doesn't fix the issue._
 
 Since only one student is updated, it will still consider the whole array is updated. 
+
+(Test-3)
 
 ![](redux-4.png)
 
@@ -248,6 +252,7 @@ const Student = props => {
 export default Student;
 ```
 
+(Test-4)
 
 ![](redux-5.gif)
 
@@ -255,10 +260,10 @@ export default Student;
 
 #### _Questions for you..._
 
-1. If you noticed the "react-awesome-reveal" that is used for "Fade" effect when we click on the person. Why does the original code (with bug) seem look running correctly with only one person "Fading" even though all students are rendered ?
+When you click on a person, you might have noticed the "react-awesome-reveal" used for the "Fade" effect. Please look carefully at the (Test-1). Why is it only "Fading" on one person since we have proved that all students are rendered?
 
-2. What's the influence if we never fix the bug?
+思考題, 
+你可以在 (Test-1) 動畫看到, 我們有使用 "Fade" 效果, 既然我們都已經證明, 所有學生都被 rendered 了, 那為什麼僅有一人 會出現 Fade 效果呢 ?
 
-3. If we receive 'webSocket' for a single element update, how can we update at the reducer with using immer ?
 
 

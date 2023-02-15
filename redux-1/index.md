@@ -130,7 +130,7 @@ export default Student;
 
 ### _What's wrong with the code?_
 
-到底哪裡出錯了, 我們來看這個動畫, 當一個學生被按下, 我們從 console.log 證明, 其實 所有人 都被 render 了 !
+到底哪裡出錯了, 我們來看這個動畫, 當一個學生被按下, 我們從 console.log 證明, 其實 所有人 都被 render 了 ! 也觀察到 整個 Main 都被 render !
 
 (Test-1)
 
@@ -138,7 +138,7 @@ export default Student;
 
 ### _We should NOT reload the whole "Main" when clicking on a single person!_
 
-如果只有一個學生被按下, 我們不應該 reload 整個 Main component 
+如果只有一個學生被按下, 我們不應該 reload 整個 Main component, 原因是 我們居然在 Main 訂閱 useSelector() 變數異動 的觸發 ! 
 
 How to fix it? If we want to reference the initState "list" at the "Main".
 
@@ -146,7 +146,7 @@ Simply use "store.getState()" to load the data.
 
 We should avoid using the "Main(root)" as an observer because any update to the root may force rendering all the children.
 
-我們應該避免 在 parent 層 進行 render 觸發, 因為這樣 所有的 child 都會被重新 rendered
+為了避免 "訂閱" 行為, 我們可以 輕鬆的 改成 "載入行為" 改用 store.getState(), 這樣就不會 因為內容改變而被觸發 !
 
 ```jsx
 import store from '../../store';
@@ -291,7 +291,7 @@ When you click on a person, you might have noticed the "react-awesome-reveal" us
 
 請試著回答 這個思考題 非常有意思的喔 !
 
-你可以在 (Test-1) 動畫看到, 我們有使用 "Fade" 效果, 既然我們都已經證明, 所有學生都被 rendered 了, 那為什麼僅有一人 會出現 Fade 效果呢 ?
+你可以在 (Test-1) 有 bug 的動畫中 看到, 我們有使用 "Fade" 效果, 既然我們都已經證明, 所有學生都被 rendered 了, 那為什麼 不是人人都 Fade, 居然 僅有一人 會出現 Fade 效果呢 ?
 
 
 

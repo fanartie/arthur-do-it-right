@@ -5,7 +5,9 @@ by [Arthur Fan](mailto:fanartie@gmail.com),  July 2020
 Let’s talk about common mistakes with using Redux.
 We are going to create a simple Redux project as follows.
 
-關於 Redux 經常遇到的問題, 多半都是 "看不見的問題", 因為顯示的結果對了 以為就沒事了, 事實上, 看不到的錯誤非常多, 例如 "重複 Render"
+關於 Redux 經常遇到的問題, 多半都是 "看不見的問題", 因為顯示的結果對了 以為就沒事了, 事實上, 看不到的 地雷 非常多, 例如 "重複 Render"
+
+我們打算 來做出這個 動畫結果... 
 
 ![](redux-1.gif)
 
